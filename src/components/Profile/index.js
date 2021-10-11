@@ -5,6 +5,14 @@ import axios from 'axios';
 
 import './styles.scss';
 
+import * as crypto from 'crypto-js';
+
+const {
+  createHash
+} = await import('crypto');
+// import crypto from 'crypto';
+// require('crypto');
+
 const Profile = () => {
   const params = useParams();
   const charactersId = params.id;
@@ -32,7 +40,11 @@ const Profile = () => {
     const privateKey = 'b0223681fced28de0fe97e6b9cd091dd36a5b71d';
     const publicKey = '298bab46381a6daaaee19aa5c8cafea5';
 
-    const crypto = require('crypto');
+    // const hashPass = crypto
+    //   .createHash('md5')
+    //   .update(`${timeStamp}${privateKey}${publicKey}`)
+    //   .digest('hex');
+
     const hashPass = crypto
       .createHash('md5')
       .update(`${timeStamp}${privateKey}${publicKey}`)
